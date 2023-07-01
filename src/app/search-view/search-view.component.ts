@@ -1,6 +1,8 @@
-import { Component } from '@angular/core';
+import {Component, inject, Signal} from '@angular/core';
 import { CommonModule } from '@angular/common';
 import {TvShowTableComponent} from '../tv-show-table/tv-show-table.component';
+import {SearchService} from "../search.service";
+import {TvShow} from "../types";
 
 @Component({
   selector: 'app-search-view',
@@ -11,4 +13,14 @@ import {TvShowTableComponent} from '../tv-show-table/tv-show-table.component';
 })
 export class SearchViewComponent {
 
+  private searchService = inject(SearchService);
+  protected data!: Signal<TvShow[]>;
+
+  constructor() {
+      this.runSearch();
+  }
+
+  runSearch(term = "") {
+    this.data = this.searchService.search(term);
+  }
 }

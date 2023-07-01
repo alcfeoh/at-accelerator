@@ -2,7 +2,8 @@
 @import "../node_modules/mini.css/dist/mini-default.min.css";
 
 table:not(.horizontal) {
-  overflow: hidden;
+  overflow-x: hidden;
+  max-height: fit-content;
 }
 
 span.icon-bookmark.highlight {
