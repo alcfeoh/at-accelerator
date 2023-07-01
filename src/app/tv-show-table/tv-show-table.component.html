@@ -9,6 +9,9 @@
   </tr>
   </thead>
   <tbody>
+  <div *ngIf="isLoading" class="spinner-table">
+    <div class="spinner primary"></div>
+  </div>
   <tr *ngFor="let show of shows">
     <td data-label="Name">{{show.name}}</td>
     <td data-label="Country">{{show.country}}</td>

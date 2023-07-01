@@ -13,7 +13,7 @@ import {TvShow} from "../types";
 })
 export class SearchViewComponent {
 
-  private searchService = inject(SearchService);
+  protected searchService = inject(SearchService);
   protected data!: Signal<TvShow[]>;
 
   constructor() {

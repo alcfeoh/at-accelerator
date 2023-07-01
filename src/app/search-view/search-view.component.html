@@ -13,7 +13,9 @@
     </div>
     <div class="row">
       <div class="col-sm-12">
-        <app-tv-show-table [shows]="data()"></app-tv-show-table>
+        <app-tv-show-table [shows]="data()" [isLoading]="searchService.isSearching()">
+
+        </app-tv-show-table>
       </div>
   </div>
 </div>

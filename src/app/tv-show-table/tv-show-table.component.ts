@@ -14,4 +14,7 @@ export class TvShowTableComponent {
   @Input({required: true})
   shows!: TvShow[];
 
+  @Input()
+  isLoading = false;
+
 }
