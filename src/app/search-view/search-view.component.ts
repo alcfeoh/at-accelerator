@@ -20,7 +20,8 @@ export class SearchViewComponent {
       this.runSearch();
   }
 
-  runSearch(term = "") {
+  runSearch(term = "", event?: Event) {
+    event?.preventDefault();
     this.data = this.searchService.search(term);
   }
 }
