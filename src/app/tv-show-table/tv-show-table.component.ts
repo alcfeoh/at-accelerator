@@ -1,6 +1,7 @@
-import {Component, Input} from '@angular/core';
-import { CommonModule } from '@angular/common';
-import {TvShow} from "../types";
+import {Component, EventEmitter, inject, Input, Output} from '@angular/core';
+import {CommonModule} from '@angular/common';
+import {TvShow, TvShowId, TvShowIds} from "../types";
+import {FavoritesService} from '../favorites.service';
 
 @Component({
   selector: 'app-tv-show-table',
@@ -11,10 +12,11 @@ import {TvShow} from "../types";
 })
 export class TvShowTableComponent {
 
+  protected favoritesService = inject(FavoritesService);
+
   @Input({required: true})
   shows!: TvShow[];
 
   @Input()
   isLoading = false;
-
-}
+  }
