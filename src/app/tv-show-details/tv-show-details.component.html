@@ -1,0 +1,24 @@
+ <h2>{{showDetails?.name}}  - {{showDetails?.country}} - {{showDetails?.start_date | date:'yyyy'}} </h2>
+ <hr/>
+ <div>
+
+ </div>
+<div class="section">
+  <div class="container">
+    <div class="row">
+      <div class="col-sm-6">
+        <img [src]="showDetails?.image_thumbnail_path" />
+      </div>
+      <div class="col-sm-6" [innerHTML]="showDetails?.description">
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-sm-12">
+      <h5>Rating: {{showDetails?.rating | number}}/10 (rated by {{showDetails?.rating_count}} people)</h5>
+    </div>
+  </div>
+</div>
+ <button (click)="back()" class="primary"><< Back</button>
+
+
