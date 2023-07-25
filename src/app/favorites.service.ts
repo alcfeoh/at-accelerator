@@ -10,7 +10,7 @@ export class FavoritesService {
   private readonly FAVORITES_KEY = "favorites";
   private storage = inject(StorageService<TvShowIds>);
   private favoritesSignal = signal<TvShowIds>(this.storage.get(this.FAVORITES_KEY));
-  favorites = this.favoritesSignal.asReadonly();
+  readonly favorites = this.favoritesSignal.asReadonly();
 
   constructor() {
     // Registering an effect to update localStorage so this code will run no matter
