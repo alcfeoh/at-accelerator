@@ -19,7 +19,7 @@
     <td data-label="Status">{{show.status}}</td>
     <td data-label="Actions">
       <span class="icon-info"></span>
-      <span class="icon-bookmark" [class]="favoritesService.favorites().includes(show.id) ? 'highlight': '' "
+      <span class="icon-bookmark" [class.highlight]="favoritesService.favorites().includes(show.id)"
        (click)="favoritesService.toggleFavorite(show.id)">
 
       </span>
