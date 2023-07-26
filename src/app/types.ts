@@ -17,7 +17,7 @@ export interface TvShow {
   image_thumbnail_path: string;
 }
 
-export interface TvShowDetails extends TvShow{
+export interface TvShowDetails extends TvShow {
   url:                  string;
   description:          string;
   description_source:   string;
@@ -30,6 +30,7 @@ export interface TvShowDetails extends TvShow{
   genres:               string[];
   pictures:             string[];
   episodes:             Episode[];
+  seasonCount:          number;
 }
 
 export interface Episode {

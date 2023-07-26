@@ -13,7 +13,10 @@ export class TvShowDetailsService {
 
   getShowDetails(showId: TvShowId): Observable<TvShowDetails> {
     return this.http.get<{tvShow: TvShowDetails}>(`${API_URL}show-details?q=${showId}`).pipe(
-      map(data => data.tvShow)
+      map(data => {
+        data.tvShow.seasonCount = data.tvShow.episodes.at(-1)!.season;
+        return data.tvShow;
+      })
     )
   }
 }
