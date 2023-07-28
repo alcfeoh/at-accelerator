@@ -1,0 +1,18 @@
+<div class="card large">
+    <div class="section">
+      <div class="row">
+        <div class="col-md-11">
+          <h2>{{tvShowDetails.name}}</h2>
+        </div>
+        <div class="col-md-1">
+          <span class="icon-info" routerLink="details/{{tvShowDetails.id}}"></span>
+          <span class="icon-bookmark highlight"
+                (click)="favoritesService.toggleFavorite(tvShowDetails.id)" ></span>
+        </div>
+      </div>
+    </div>
+    <img [src]="tvShowDetails.image_path" class="section media"/>
+    <div class="section">
+      Next episode: {{tvShowDetails.countdown?.air_date | date}}
+    </div>
+</div>
