@@ -15,7 +15,7 @@
   </div>
   <div class="row">
     <div class="col-sm-12">
-      <h5>Rating: {{showDetails.rating | number}}/10 (rated by {{showDetails.rating_count}} people)</h5>
+      <h5>Rating: {{showDetails.rating | number: '1.0-2'}}/10 (rated by {{showDetails.rating_count}} people)</h5>
       <p>
         {{showDetails.episodes.length}} episodes - {{showDetails.seasonCount | i18nPlural: {'=1': '# season', 'other': '# seasons'} }}
       </p>
