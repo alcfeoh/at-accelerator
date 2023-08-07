@@ -19,8 +19,7 @@
     <td data-label="Status">{{show.status}}</td>
     <td data-label="Actions">
       <span class="icon-info" routerLink="details/{{show.id}}"></span>
-      <span class="icon-bookmark" [class]="favoritesService.favorites().includes(show.id) ? 'highlight': '' "
-       (click)="favoritesService.toggleFavorite(show.id)">
+      <span class="icon-bookmark" [appToggleFavorite]="show.id">
 
       </span>
       <span class="icon-link"></span>
