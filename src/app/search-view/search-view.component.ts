@@ -2,7 +2,7 @@ import {Component, inject, Signal} from '@angular/core';
 import { CommonModule } from '@angular/common';
 import {TvShowTableComponent} from '../tv-show-table/tv-show-table.component';
 import {SearchService} from "../search.service";
-import {TvShow} from "../types";
+import {SearchResponse} from "../types";
 
 @Component({
   selector: 'app-search-view',
@@ -14,14 +14,14 @@ import {TvShow} from "../types";
 export class SearchViewComponent {
 
   protected searchService = inject(SearchService);
-  protected data!: Signal<TvShow[]>;
+  protected data!: Signal<SearchResponse>;
 
   constructor() {
       this.runSearch();
   }
 
-  runSearch(term = "", event?: Event) {
+  runSearch(term = "", page = 1, event?: Event) {
     event?.preventDefault();
-    this.data = this.searchService.search(term);
+    this.data = this.searchService.search(term, page);
   }
 }
