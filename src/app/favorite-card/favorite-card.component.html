@@ -1,17 +1,10 @@
-<div class="card large">
-    <div class="section">
-      <div class="row">
-        <div class="col-md-11">
-          <h2>{{tvShowDetails.name}}</h2>
-        </div>
-        <div class="col-md-1">
-          <span class="icon-info" routerLink="details/{{tvShowDetails.id}}"></span>
-          <span class="icon-bookmark highlight" [appToggleFavorite]="tvShowDetails.id" ></span>
-        </div>
-      </div>
-    </div>
-    <img [src]="tvShowDetails.image_path" class="section media"/>
-    <div class="section">
-      {{tvShowDetails | countdown}}
-    </div>
-</div>
+<app-card [title]="tvShowDetails.name">
+  <ng-container actions>
+    <span class="icon-info" routerLink="details/{{tvShowDetails.id}}"></span>
+    <span class="icon-bookmark highlight" [appToggleFavorite]="tvShowDetails.id" ></span>
+  </ng-container>
+  <img body [src]="tvShowDetails.image_path" class="section media"/>
+  <ng-container footer>
+    {{tvShowDetails | countdown}}
+  </ng-container>
+</app-card>
