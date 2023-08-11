@@ -1,0 +1,16 @@
+dialog {
+  border: 0;
+  padding: 0;
+  background-color: transparent;
+}
+
+.small {
+  width: 60px;
+  cursor: pointer;
+  margin: 2px;
+}
+
+div[body]{
+  justify-content: center;
+  display: grid;
+}
