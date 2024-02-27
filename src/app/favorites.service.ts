@@ -21,8 +21,8 @@ export class FavoritesService {
   toggleFavorite(id: TvShowId): void {
     const index = this.favoritesSignal().indexOf(id);
     if (index !== -1)
-      this.favoritesSignal.mutate(favorites => favorites.splice(index, 1));
+      this.favoritesSignal.update(favorites => favorites.filter((data, idx) => idx !== index));
     else
-      this.favoritesSignal.mutate(favorites => favorites.push(id));
+      this.favoritesSignal.update(favorites => [...favorites, id]);
   }
 }
