@@ -1,0 +1,37 @@
+<table>
+  <thead>
+  <tr>
+    <th>Name</th>
+    <th>Country</th>
+    <th>Year started</th>
+    <th>Status</th>
+    <th>Actions</th>
+  </tr>
+  </thead>
+  <tbody>
+    @defer(when fetchComplete){
+      @for(tvShow of tvShows; track tvShow.id){
+        <tr>
+          <td data-label="Name">{{ tvShow.name }}</td>
+          <td data-label="Country">{{ tvShow.country }}</td>
+          <td data-label="Year started">{{ tvShow.startDate }}</td>
+          <td data-label="Status">{{ tvShow.status }}</td>
+          <td data-label="Actions">
+            <span class="icon-info"></span>
+            <span class="icon-bookmark"></span>
+            <span class="icon-link"></span>
+          </td>
+        </tr>
+      }
+    }
+    @placeholder {
+        <div class="container">
+          <div class="row">
+            <div class="col-sm-12">
+              <div class="spinner primary"></div>
+            </div>
+          </div>
+        </div>
+    }
+  </tbody>
+</table>

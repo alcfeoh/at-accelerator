@@ -1,5 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { ITvShow } from '../../interface/tv-show';
 
 @Component({
   selector: 'app-tv-show-table',
@@ -9,5 +10,6 @@ import { CommonModule } from '@angular/common';
   styleUrls: ['./tv-show-table.component.css']
 })
 export class TvShowTableComponent {
-
+  @Input() tvShows: ITvShow[] = [];
+  @Input() fetchComplete: boolean = true;
 }
