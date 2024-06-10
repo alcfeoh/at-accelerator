@@ -9,8 +9,8 @@
   </tr>
   </thead>
   <tbody>
-    @if(fetchComplete){
-      @for(tvShow of tvShows; track tvShow.id){
+    @if(fetchComplete()){
+      @for(tvShow of tvShows(); track tvShow.id){
         <tr>
           <td data-label="Name">{{ tvShow.name }}</td>
           <td data-label="Country">{{ tvShow.country }}</td>
