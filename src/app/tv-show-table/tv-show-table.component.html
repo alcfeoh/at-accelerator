@@ -9,38 +9,18 @@
   </tr>
   </thead>
   <tbody>
-  <tr>
-    <td data-label="Name">Alone</td>
-    <td data-label="Country">US</td>
-    <td data-label="Year started">2015</td>
-    <td data-label="Status">Running</td>
-    <td data-label="Actions">
-      <span class="icon-info"></span>
-      <span class="icon-bookmark"></span>
-      <span class="icon-link"></span>
-    </td>
-  </tr>
-  <tr>
-    <td data-label="Name">Black Mirror</td>
-    <td data-label="Country">UK</td>
-    <td data-label="Year started">2011</td>
-    <td data-label="Status">To Be Determined</td>
-    <td data-label="Actions">
-      <span class="icon-info"></span>
-      <span class="icon-bookmark highlight"></span>
-      <span class="icon-link"></span>
-    </td>
-  </tr>
-  <tr>
-    <td data-label="Name">True Detective</td>
-    <td data-label="Country">US</td>
-    <td data-label="Year started">2014</td>
-    <td data-label="Status">Running</td>
-    <td data-label="Actions">
-      <span class="icon-info"></span>
-      <span class="icon-bookmark"></span>
-      <span class="icon-link"></span>
-    </td>
-  </tr>
+    @for (show of shows; track $index) {
+      <tr>
+        <td data-label="Name">{{show.name}}</td>
+        <td data-label="Country">{{show.country}}</td>
+        <td data-label="Year started">{{show.start_date | date: 'yyyy'}}</td>
+        <td data-label="Status">{{show.status}}</td>
+        <td data-label="Actions">
+          <span class="icon-info"></span>
+          <span class="icon-bookmark"></span>
+          <span class="icon-link"></span>
+        </td>
+      </tr>
+    }
   </tbody>
 </table>
