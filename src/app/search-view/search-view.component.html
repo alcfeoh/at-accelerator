@@ -5,8 +5,8 @@
         <fieldset>
           <legend>TV Show Search</legend>
           <label for="name">Name</label>
-          <input type="text" id="name" placeholder="Name of the show"/>
-          <button class="primary">Search</button>
+          <input type="text" id="name" placeholder="Name of the show" #searchField/>
+          <button class="primary" (click)="runSearchTvShows(searchField.value, $event)">Search</button>
         </fieldset>
       </form>
     </div>

@@ -14,7 +14,8 @@ export class SearchService {
 
   constructor(private http: HttpClient) { }
 
-  search(term = ""): Signal<TvShow[]> {
+  searchTvShows(term = ""): Signal<TvShow[]> {
+    this.lastSearchResults.set([]);
     this.searching.set(true);
     this.http.get<SearchResponse>(API_URL + `search?q=${term}&page=1`).subscribe(data => {
       this.lastSearchResults.set(data.tv_shows);

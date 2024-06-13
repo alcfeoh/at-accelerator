@@ -17,10 +17,11 @@ export class SearchViewComponent {
   protected data!: Signal<TvShow[]>;
 
   ngOnInit() {
-    this.runSearch();
+    this.runSearchTvShows();
   }
-  runSearch(term = '') {
-    this.data = this.searchService.search(term);
+  runSearchTvShows(term = '', event?: Event) {
+    event?.preventDefault();
+    this.data = this.searchService.searchTvShows(term);
   }
 
   
