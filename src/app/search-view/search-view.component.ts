@@ -13,7 +13,7 @@ import { TvShow } from '../types';
   styleUrls: ['./search-view.component.css']
 })
 export class SearchViewComponent {
-  private searchService = inject(SearchService);
+  protected searchService = inject(SearchService);
   protected data!: Signal<TvShow[]>;
 
   ngOnInit() {

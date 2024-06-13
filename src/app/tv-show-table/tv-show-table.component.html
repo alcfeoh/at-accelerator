@@ -9,6 +9,11 @@
   </tr>
   </thead>
   <tbody>
+    @if (isLoading) {
+      <div class="spinner-table">
+        <div class="spinner primary"></div>
+      </div>
+    }
     @for (show of shows; track $index) {
       <tr>
         <td data-label="Name">{{show.name}}</td>
