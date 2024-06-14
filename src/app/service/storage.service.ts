@@ -5,7 +5,7 @@ import { Injectable } from '@angular/core';
 })
 export class StorageService {
   constructor() {}
-
+  //todo: Use a Signal to emit LocalStorage updates
   get<Type>(name: string): Type[] | void{
     let storedValues = localStorage.getItem(name);
     if(storedValues != undefined){
