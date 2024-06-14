@@ -9,7 +9,7 @@ export class FavoritesService {
   constructor(private storageService: StorageService){}
 
   toggleFavorite(id: number){
-    let favorites = this.storageService.get(FAVORITE_SHOWS);
+    let favorites = this.getFavorites();
     if(favorites != undefined){
       if(favorites.includes(id)){
         favorites = favorites.filter(item => item != id);
@@ -18,5 +18,9 @@ export class FavoritesService {
       }
     }
     this.storageService.set(FAVORITE_SHOWS, favorites ?? [id]);
+  }
+
+  getFavorites(): number[]{
+    return this.storageService.get(FAVORITE_SHOWS) ?? [];
   }
 }

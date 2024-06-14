@@ -11,11 +11,15 @@ import { FavoritesService } from '../../service/favorites.service';
   styleUrls: ['./tv-show-table.component.css']
 })
 export class TvShowTableComponent {
-  constructor(private favoritesService: FavoritesService){}
+  constructor(private favoritesService: FavoritesService){
+    this.currentFavoriteShows = this.favoritesService.getFavorites();
+  }
   tvShows = input<ITvShow[]>([]);
   fetchComplete = input<boolean>(true);
+  currentFavoriteShows: number[] = [];
 
   toggleFavorite(showId: number): void{
     this.favoritesService.toggleFavorite(showId);
+    this.currentFavoriteShows = this.favoritesService.getFavorites();
   }
 }
