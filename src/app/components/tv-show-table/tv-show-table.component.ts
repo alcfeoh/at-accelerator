@@ -1,4 +1,4 @@
-import { Component, input } from '@angular/core';
+import { Component, inject, input } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ITvShow } from '../../interface/tv-show';
 import { FavoritesService } from '../../service/favorites.service';
@@ -11,15 +11,7 @@ import { FavoritesService } from '../../service/favorites.service';
   styleUrls: ['./tv-show-table.component.css']
 })
 export class TvShowTableComponent {
-  constructor(private favoritesService: FavoritesService){
-    this.currentFavoriteShows = this.favoritesService.getFavorites();
-  }
+  protected favoritesService = inject(FavoritesService);
   tvShows = input<ITvShow[]>([]);
   fetchComplete = input<boolean>(true);
-  currentFavoriteShows: number[] = [];
-
-  toggleFavorite(showId: number): void{
-    this.favoritesService.toggleFavorite(showId);
-    this.currentFavoriteShows = this.favoritesService.getFavorites();
-  }
 }

@@ -18,8 +18,8 @@
           <td data-label="Status">{{ tvShow.status }}</td>
           <td data-label="Actions">
             <span class="icon-info"></span>
-            <a (click)="toggleFavorite(tvShow.id)">
-              <span class="icon-bookmark" [ngClass]="currentFavoriteShows.includes(tvShow.id) ? 'highlight' : ''"></span>
+            <a [class.highlight]="favoritesService.favorites().includes(tvShow.id)" (click)="favoritesService.toggleFavorite(tvShow.id)">
+              <span class="icon-bookmark" ></span>
             </a>
             <span class="icon-link"></span>
           </td>

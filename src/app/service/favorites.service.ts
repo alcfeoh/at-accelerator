@@ -1,26 +1,27 @@
-import { Injectable } from '@angular/core';
-import { StorageService } from './storage.service';
+import {effect, inject, Injectable, signal} from '@angular/core';
+import {StorageService} from './storage.service';
+import { TvShowId, TvShowIds } from '../shared/types';
 import { FAVORITE_SHOWS } from '../shared/constants';
 
 @Injectable({
   providedIn: 'root'
 })
-export class FavoritesService {
-  constructor(private storageService: StorageService){}
 
-  toggleFavorite(id: number){
-    let favorites = this.getFavorites();
-    if(favorites != undefined){
-      if(favorites.includes(id)){
-        favorites = favorites.filter(item => item != id);
-      } else {
-        favorites.push(id);
-      }
-    }
-    this.storageService.set(FAVORITE_SHOWS, favorites ?? [id]);
+export class FavoritesService {
+
+  private storage = inject(StorageService<TvShowIds>);
+  private favoritesSignal = signal<TvShowIds>(this.storage.get(FAVORITE_SHOWS));
+  readonly favorites = this.favoritesSignal.asReadonly();
+
+  constructor() {
+    effect(() => this.storage.set(FAVORITE_SHOWS, this.favoritesSignal()));
   }
 
-  getFavorites(): number[]{
-    return this.storageService.get(FAVORITE_SHOWS) ?? [];
+  toggleFavorite(id: TvShowId): void {
+    const index = this.favoritesSignal().indexOf(id);
+    if (index !== -1)
+      this.favoritesSignal.update(favorites => favorites.filter((_, i) => i !== index));
+    else
+      this.favoritesSignal.update(favorites => [...favorites, id]);
   }
 }
