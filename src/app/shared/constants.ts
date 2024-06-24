@@ -1,0 +1,1 @@
+export const FAVORITE_SHOWS = 'favorite_shows';
