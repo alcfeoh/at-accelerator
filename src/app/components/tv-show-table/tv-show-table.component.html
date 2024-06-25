@@ -17,7 +17,8 @@
           <td data-label="Year started">{{ tvShow.start_date }}</td>
           <td data-label="Status">{{ tvShow.status }}</td>
           <td data-label="Actions">
-            <span class="icon-info"></span>
+            <a (click)="detailsService.getDetails(tvShow.id)"><span class="icon-info"></span></a>
+            
             <a [class.highlight]="favoritesService.favorites().includes(tvShow.id)" (click)="favoritesService.toggleFavorite(tvShow.id)">
               <span class="icon-bookmark" ></span>
             </a>

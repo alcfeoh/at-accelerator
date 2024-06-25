@@ -2,6 +2,7 @@ import { Component, inject, input } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ITvShow } from '../../interface/tv-show';
 import { FavoritesService } from '../../service/favorites.service';
+import { TvShowDetailsService } from '../../service/tv-show-details.service';
 
 @Component({
   selector: 'app-tv-show-table',
@@ -12,6 +13,7 @@ import { FavoritesService } from '../../service/favorites.service';
 })
 export class TvShowTableComponent {
   protected favoritesService = inject(FavoritesService);
+  protected detailsService = inject(TvShowDetailsService);
   tvShows = input<ITvShow[]>([]);
   fetchComplete = input<boolean>(true);
 }
