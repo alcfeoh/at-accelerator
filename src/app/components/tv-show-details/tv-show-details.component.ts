@@ -1,5 +1,5 @@
 import { Component, Input } from '@angular/core';
-import { IShowDetailsResponse } from '../../../interface/show-details';
+import { IShowDetailsResponse } from '../../interface/show-details';
 
 @Component({
   selector: 'app-tv-show-details',
@@ -10,6 +10,5 @@ import { IShowDetailsResponse } from '../../../interface/show-details';
 })
 
 export class TvShowDetailsComponent {
-  @Input() showDetails: IShowDetailsResponse | undefined;
-  
+  @Input() showDetails!: IShowDetailsResponse;
 }
