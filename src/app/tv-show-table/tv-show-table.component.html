@@ -18,8 +18,8 @@
     <td data-label="Year started">{{show.start_date | date: 'yyyy'}}</td>
     <td data-label="Status">{{show.status}}</td>
     <td data-label="Actions">
-      <span class="icon-info"></span>
-      <span class="icon-bookmark" [class.highlight]="favoritesService.favorites().includes(show.id)"
+      <span class="icon-info" routerLink="details/{{show.id}}"></span>
+      <span class="icon-bookmark" [class]="favoritesService.favorites().includes(show.id) ? 'highlight': '' "
        (click)="favoritesService.toggleFavorite(show.id)">
 
       </span>
@@ -28,3 +28,4 @@
   </tr>
   </tbody>
 </table>
+

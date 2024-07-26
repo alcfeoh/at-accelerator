@@ -17,6 +17,28 @@ export interface TvShow {
   image_thumbnail_path: string;
 }
 
+export interface TvShowDetails extends TvShow{
+  url:                  string;
+  description:          string;
+  description_source:   string;
+  runtime:              number;
+  youtube_link:         null;
+  image_path:           string;
+  rating:               string;
+  rating_count:         string;
+  countdown:            null | Episode;
+  genres:               string[];
+  pictures:             string[];
+  episodes:             Episode[];
+}
+
+export interface Episode {
+  season:   number;
+  episode:  number;
+  name:     string;
+  air_date: Date;
+}
+
 export type Status = "Canceled/Ended" | "Ended" | "Running" | "New Series" | "To Be Determined";
 
 export type TvShowId = TvShow["id"]; // This is better than number
