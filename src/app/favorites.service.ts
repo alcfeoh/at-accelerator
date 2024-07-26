@@ -10,7 +10,7 @@ export class FavoritesService {
   private readonly FAVORITES_KEY = "favorites";
   private storage = inject(StorageService<TvShowIds>);
   private favoritesSignal = signal<TvShowIds>(this.storage.get(this.FAVORITES_KEY));
-  favorites = this.favoritesSignal.asReadonly();
+  readonly favorites = this.favoritesSignal.asReadonly();
 
   constructor() {
     // Registering an effect to update localStorage so this code will run no matter
@@ -21,8 +21,11 @@ export class FavoritesService {
   toggleFavorite(id: TvShowId): void {
     const index = this.favoritesSignal().indexOf(id);
     if (index !== -1)
-      this.favoritesSignal.mutate(favorites => favorites.splice(index, 1));
+      this.favoritesSignal.update(favorites => {
+        favorites.splice(index, 1);
+        return [...favorites];
+      });
     else
-      this.favoritesSignal.mutate(favorites => favorites.push(id));
+      this.favoritesSignal.update(favorites => [...favorites, id]);
   }
 }
