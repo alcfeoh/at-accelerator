@@ -1,0 +1,40 @@
+<table>
+  <thead>
+  <tr>
+    <th>Name</th>
+    <th>Country</th>
+    <th>Year started</th>
+    <th>Status</th>
+    <th>Actions</th>
+  </tr>
+  </thead>
+  <tbody>
+    @if(fetchComplete()){
+      @for(tvShow of tvShows(); track tvShow.id){
+        <tr>
+          <td data-label="Name">{{ tvShow.name }}</td>
+          <td data-label="Country">{{ tvShow.country }}</td>
+          <td data-label="Year started">{{ tvShow.start_date }}</td>
+          <td data-label="Status">{{ tvShow.status }}</td>
+          <td data-label="Actions">
+            <a routerLink="details/{{tvShow.id}}">
+              <span class="icon-info"></span>
+            </a>
+            <a [class.highlight]="favoritesService.favorites().includes(tvShow.id)" (click)="favoritesService.toggleFavorite(tvShow.id)">
+              <span class="icon-bookmark" ></span>
+            </a>
+            <span class="icon-link"></span>
+          </td>
+        </tr>
+      }
+    } @else {
+      <div class="container">
+        <div class="row">
+          <div class="col-sm-12">
+            <div class="spinner primary"></div>
+          </div>
+        </div>
+      </div>
+    }
+  </tbody>
+</table>
