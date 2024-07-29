@@ -1,0 +1,7 @@
+<div>Page {{pageNumber}} of {{totalPages}}</div>
+<div class="button-group">
+  <button (click)="pageChange.emit(1)" [disabled]="pageNumber == 1"><<</button>
+  <button (click)="pageChange.emit(pageNumber - 1)" [disabled]="pageNumber == 1"><</button>
+  <button (click)="pageChange.emit(pageNumber + 1)" [disabled]="pageNumber == totalPages">></button>
+  <button (click)="pageChange.emit(totalPages)" [disabled]="pageNumber == totalPages">>></button>
+</div>

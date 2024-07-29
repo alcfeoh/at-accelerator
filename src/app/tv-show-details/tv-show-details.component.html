@@ -1,0 +1,41 @@
+ <h2>{{showDetails.name}}  - {{showDetails.country}} - {{showDetails.start_date | date:'yyyy'}} </h2>
+ <hr/>
+ <dialog #images>
+   <app-card [title]="showDetails.name">
+     <ng-container actions>
+       <h5 (click)="images.close()">&times;</h5>
+     </ng-container>
+     <div body>
+       <img [src]="currentImage || showDetails.image_path" />
+     </div>
+     <ng-container footer>
+       <img width="60px" class="small" *ngFor="let pic of showDetails.pictures" [src]="pic" (click)="currentImage = pic" />
+     </ng-container>
+   </app-card>
+ </dialog>
+<div class="section">
+  <div class="container">
+    <div class="row">
+      <div class="col-sm-6">
+        <img [src]="showDetails.image_thumbnail_path" />
+      </div>
+      <div class="col-sm-6" [innerHTML]="showDetails.description">
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-sm-12">
+      <h5>Rating: {{showDetails.rating | number}}/10 (rated by {{showDetails.rating_count}} people)</h5>
+      <p>
+        {{showDetails.episodes.length}} episodes - {{showDetails.seasonCount | i18nPlural: {'=1': '# season', 'other': '# seasons'} }}
+      </p>
+    </div>
+  </div>
+</div>
+ <button (click)="images.show()" class="tertiary">Show images</button>
+ <button (click)="back()" class="primary"><< Back</button>
+
+
+
+
+
