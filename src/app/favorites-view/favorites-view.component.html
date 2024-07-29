@@ -1,1 +1,6 @@
-<p>favorites-view works!</p>
+<div class="row">
+  <app-favorite-card *ngFor="let details of showDetails$ | async"
+                    [tvShowDetails]="details">
+
+  </app-favorite-card>
+</div>
