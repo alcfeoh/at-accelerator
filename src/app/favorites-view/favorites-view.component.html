@@ -1,6 +1,7 @@
 <div class="row">
-  <app-favorite-card *ngFor="let details of showDetails$ | async"
-                    [tvShowDetails]="details">
+  @for (details of showDetails$ | async; track details.id) {
+    <app-favorite-card [tvShowDetails]="details">
 
-  </app-favorite-card>
+    </app-favorite-card>
+  }
 </div>
