@@ -9,19 +9,23 @@
   </tr>
   </thead>
   <tbody>
-  <div *ngIf="isLoading" class="spinner-table">
-    <div class="spinner primary"></div>
-  </div>
-  <tr *ngFor="let show of shows">
-    <td data-label="Name">{{show.name}}</td>
-    <td data-label="Country">{{show.country}}</td>
-    <td data-label="Year started">{{show.start_date | date: 'yyyy'}}</td>
-    <td data-label="Status">{{show.status}}</td>
-    <td data-label="Actions">
-      <span class="icon-info"></span>
-      <span class="icon-bookmark"></span>
-      <span class="icon-link"></span>
-    </td>
-  </tr>
+  @if (isLoading) {
+    <div class="spinner-table">
+      <div class="spinner primary"></div>
+    </div>
+  }
+  @for(show of shows; track show.id) {
+    <tr >
+      <td data-label="Name">{{show.name}}</td>
+      <td data-label="Country">{{show.country}}</td>
+      <td data-label="Year started">{{show.start_date | date: 'yyyy'}}</td>
+      <td data-label="Status">{{show.status}}</td>
+      <td data-label="Actions">
+        <span class="icon-info"></span>
+        <span class="icon-bookmark"></span>
+        <span class="icon-link"></span>
+      </td>
+    </tr>
+  }
   </tbody>
 </table>

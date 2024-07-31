@@ -1,11 +1,11 @@
 import {Component, Input} from '@angular/core';
-import { CommonModule } from '@angular/common';
+import {DatePipe} from '@angular/common';
 import {TvShow} from "../types";
 
 @Component({
   selector: 'app-tv-show-table',
   standalone: true,
-  imports: [CommonModule],
+  imports: [DatePipe],
   templateUrl: './tv-show-table.component.html',
   styleUrls: ['./tv-show-table.component.css']
 })
