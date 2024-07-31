@@ -1,5 +1,5 @@
 import {Component, Input} from '@angular/core';
-import {CommonModule} from '@angular/common';
+import {DatePipe} from '@angular/common';
 import {TvShow} from "../types";
 import {RouterLink} from '@angular/router';
 import {ToggleFavoriteDirective} from '../toggle-favorite.directive';
@@ -7,7 +7,7 @@ import {ToggleFavoriteDirective} from '../toggle-favorite.directive';
 @Component({
   selector: 'app-tv-show-table',
   standalone: true,
-  imports: [CommonModule, RouterLink, ToggleFavoriteDirective],
+  imports: [DatePipe, RouterLink, ToggleFavoriteDirective],
   templateUrl: './tv-show-table.component.html',
   styleUrls: ['./tv-show-table.component.css']
 })
