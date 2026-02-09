@@ -1,6 +1,6 @@
-import {Component, Input} from '@angular/core';
-import {DatePipe} from '@angular/common';
-import {TvShow} from "../types";
+import { Component, Input } from '@angular/core';
+import { DatePipe } from '@angular/common';
+import { TvShow } from "../types";
 
 @Component({
   selector: 'app-tv-show-table',
@@ -11,7 +11,7 @@ import {TvShow} from "../types";
 })
 export class TvShowTableComponent {
 
-  @Input({required: true})
+  @Input({ required: true })
   shows!: TvShow[];
 
   @Input()
