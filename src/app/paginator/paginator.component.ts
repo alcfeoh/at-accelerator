@@ -1,8 +1,7 @@
-import {ChangeDetectionStrategy, Component, EventEmitter, Input, Output} from '@angular/core';
+import { ChangeDetectionStrategy, Component, EventEmitter, Input, Output } from '@angular/core';
 
 @Component({
   selector: 'app-paginator',
-  standalone: true,
   templateUrl: './paginator.component.html',
   styleUrls: ['./paginator.component.css'],
   changeDetection: ChangeDetectionStrategy.OnPush
