@@ -8,8 +8,8 @@ describe('FavoritesViewComponent', () => {
 
   beforeEach(() => {
     TestBed.configureTestingModule({
-      declarations: [FavoritesViewComponent]
-    });
+    imports: [FavoritesViewComponent]
+});
     fixture = TestBed.createComponent(FavoritesViewComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
