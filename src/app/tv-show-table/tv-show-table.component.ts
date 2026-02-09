@@ -1,7 +1,7 @@
-import {Component, inject, Input} from '@angular/core';
-import { DatePipe} from '@angular/common';
-import {TvShow} from "../types";
-import {FavoritesService} from '../favorites.service';
+import { Component, inject, Input } from '@angular/core';
+import { DatePipe } from '@angular/common';
+import { TvShow } from "../types";
+import { FavoritesService } from '../favorites.service';
 
 @Component({
   selector: 'app-tv-show-table',
@@ -14,9 +14,9 @@ export class TvShowTableComponent {
 
   protected favoritesService = inject(FavoritesService);
 
-  @Input({required: true})
+  @Input({ required: true })
   shows!: TvShow[];
 
   @Input()
   isLoading = false;
-  }
+}
